@@ -37,7 +37,33 @@ const Navbar = () => {
         {/* <div className="max-w-max space-x-[51px] md:space-x-0 md:max-w-[431px] lg:max-w-[700px] w-full flex items-center justify-between"> */}
         <div className="w-full flex items-center">
 
-          <div className="w-[calc(50vw+152px-16px)] md:w-[calc(50vw+152px-40px)] lg:w-[calc(50vw+152px-80px)] max-w-[calc(50%+150px)] flex items-center justify-between ml-auto">
+        <style jsx>{`
+
+          .max-w-navBar {
+            max-width: calc(50% +${width/2}px);
+          }
+
+          .w-navBar{
+            width: calc(50vw +${width/2}px - 14px);
+          }
+
+          @media(min-width: 768px){
+            .w-navBar{
+              width: calc(50vw +${width/2}px - 38px);
+            }
+          }
+
+          @media(min-width: 1024px){
+            .w-navBar{
+              width: calc(50vw +${width/2}px - 78px);
+            }
+          }
+
+        `}</style>
+
+        {/* <div className="w-[calc(50vw+152px-16px)] md:w-[calc(50vw+152px-40px)] lg:w-[calc(50vw+152px-80px)] max-w-[calc(50%+150px)] flex items-center justify-between ml-auto"> */}
+
+          <div className="w-navBar max-w-navBar flex items-center justify-between ml-auto">
 
             <a 
               className="block max-w-[60%] w-max sm:max-w-full" 

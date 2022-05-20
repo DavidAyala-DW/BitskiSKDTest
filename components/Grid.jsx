@@ -202,8 +202,6 @@ const Grid = ({ products, featuredProduct}) => {
 
           <div className="mx-auto w-full flex flex-col space-y-8 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-5 md:gap-y-10 lg:gap-x-10">
 
-            <CustomProductViewer product={featuredProduct} />
-
             {
 
               productList.map((item) => {
@@ -225,7 +223,7 @@ const Grid = ({ products, featuredProduct}) => {
         )
       }
 
-      {
+      {/* {
 
         (spinnerActive) && (
 
@@ -243,7 +241,7 @@ const Grid = ({ products, featuredProduct}) => {
 
         )
 
-      }
+      } */}
 
       {
 
