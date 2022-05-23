@@ -51,6 +51,27 @@ const Hero = () => {
 
   }, [desktopImage]);
 
+  function scrollToTargetAdjusted(){
+
+    if (!cta_link) {
+
+      const element = document.getElementById('featuredProduct');
+      const headerOffset = 140;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+      window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+      });      
+
+      return;
+    }
+
+    window.location.href = cta_link
+
+  }
+
   return (
     <>
 
@@ -93,6 +114,7 @@ const Hero = () => {
             <a 
               href={cta_link}
               className="px-[53.5px] leading-[14px] bg-primary py-[13px] text-center text-secondary buttonShape text-[12px] font-body"
+              onClick = {e => {e.preventDefault(); scrollToTargetAdjusted()}}
             >
             {cta_text}
 
