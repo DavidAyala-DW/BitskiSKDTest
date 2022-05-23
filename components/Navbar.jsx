@@ -94,7 +94,7 @@ const Navbar = () => {
               <a 
               target="_blank"
               rel="noopener noreferrer"
-              href={process.env.NEXT_PUBLIC_NAVBAR_WALLET_TEXT} 
+              href={process.env.NEXT_PUBLIC_NAVBAR_WALLET_LINK} 
               className=" py-[9.5px] px-[19px] md:px-[62.5px] leading-[13px] bg-primary md:py-[13.5px] text-center text-secondary buttonShape text-[12px] font-body"
               >
               {process.env.NEXT_PUBLIC_NAVBAR_WALLET_TEXT}
