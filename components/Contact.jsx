@@ -20,6 +20,8 @@ function Contact() {
     if(logoFileName != "/undefined"){
       const image = document.createElement("IMG");
       image.classList.add("invisible");
+      image.style.width = "100%";
+      image.style.maxWidth = "300px"
       image.src = logoFileName;
       image.onload = () => {
         console.log(image.width);
@@ -31,9 +33,6 @@ function Contact() {
           return;
 
         }
-        
-        image.style.width = "100%";
-        image.style.maxWidth = "300px"
         document.body.appendChild(image);
         setHeight(image.height);
         setWidth(image.width);
