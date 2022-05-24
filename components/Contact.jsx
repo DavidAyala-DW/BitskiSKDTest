@@ -19,27 +19,13 @@ function Contact() {
 
     if(logoFileName != "/undefined"){
       const image = document.createElement("IMG");
-      image.classList.add("invisible");
-      image.style.width = "100%";
-      image.style.maxWidth = "300px"
       image.src = logoFileName;
-      document.body.appendChild(image);
       image.onload = () => {
-        console.log(image.width);
-        if(image.width != 0){
 
-          setHeight(image.naturalHeight);
-          setWidth(image.naturalWidth);
-          setIsLoadImage(true);
-          image.remove();
-          return;
-
-        }
-        
-        setHeight(image.height);
-        setWidth(image.width);
-        image.remove();
+        setHeight(52);
+        setWidth(300);
         setIsLoadImage(true);
+        return;
       
       }
     }
