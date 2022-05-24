@@ -22,7 +22,7 @@ function Contact() {
       image.classList.add("invisible");
       image.src = logoFileName;
       image.onload = () => {
-
+        console.log(image.width);
         if(image.width != 0){
 
           setHeight(image.naturalHeight);
