@@ -6,22 +6,36 @@ const logoFileName = '/' +process.env.NEXT_PUBLIC_NAVBAR_LOGO;
 
 const Navbar = () => {
 
-  const [height, setHeight] = useState(0);
-  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState();
+  const [width, setWidth] = useState();
   const [isLoadImage, setIsLoadImage] = useState(false);
-  console.log(width);
+  
   useEffect(() => {
 
     if(logoFileName != "/undefined"){
       
       const image = document.createElement("IMG");
-      image.classList.add("w-full","h-full");
+      image.classList.add("invisible");
       image.src = logoFileName;
       image.onload = () => {
-        console.log(image);
+
+        if(image.width != 0){
+
+          setHeight(image.naturalHeight);
+          setWidth(image.naturalWidth);
+          setIsLoadImage(true);
+          return;
+
+        }
+        
+        image.style.width = "100%";
+        image.style.maxWidth = "300px"
+        document.body.appendChild(image);
         setHeight(image.height);
         setWidth(image.width);
+        image.remove();
         setIsLoadImage(true);
+      
       }
       
     }
@@ -39,6 +53,11 @@ const Navbar = () => {
 
         <style jsx>{`
 
+          @media(min-width: 768px){
+            .max-w-image{
+              max-width: ${width}px;
+            }
+          }
           .max-w-navBar {
             max-width: calc(50% +${width/2}px);
           }
@@ -66,8 +85,7 @@ const Navbar = () => {
           <div className="w-navBar max-w-navBar flex items-center justify-between ml-auto">
 
             <a 
-              className="block max-w-[60%] w-max sm:max-w-full" 
-              style={ {width: width} }
+              className="block w-full max-w-[60%] max-w-image" 
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.bitski.com/"
@@ -78,6 +96,7 @@ const Navbar = () => {
                 isLoadImage && (
 
                   <Image
+                    className="w-full"
                     src={logoFileName}
                     alt={logoFileName.replace("/","")}
                     width={width}
