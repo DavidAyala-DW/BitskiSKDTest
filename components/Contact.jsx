@@ -22,7 +22,7 @@ function Contact() {
       image.src = logoFileName;
       image.onload = () => {
 
-        setHeight(52);
+        setHeight(71);
         setWidth(300);
         setIsLoadImage(true);
         return;
