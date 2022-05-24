@@ -23,6 +23,7 @@ function Contact() {
       image.style.width = "100%";
       image.style.maxWidth = "300px"
       image.src = logoFileName;
+      document.body.appendChild(image);
       image.onload = () => {
         console.log(image.width);
         if(image.width != 0){
@@ -30,10 +31,11 @@ function Contact() {
           setHeight(image.naturalHeight);
           setWidth(image.naturalWidth);
           setIsLoadImage(true);
+          image.remove();
           return;
 
         }
-        document.body.appendChild(image);
+        
         setHeight(image.height);
         setWidth(image.width);
         image.remove();
