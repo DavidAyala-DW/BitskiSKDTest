@@ -75,7 +75,7 @@ const Hero = () => {
   return (
     <>
 
-      <section className="mt-[88px] md:mt-[120px] h-[368px] md:h-[500px] lg:h-[560px] w-full mx-auto flex flex-col justify-center items-center max-w-[2500px] relative">
+      <section className="mt-[88px] md:mt-[120px] h-[368px] md:h-[500px] lg:h-[620px] w-full mx-auto flex flex-col justify-center items-center max-w-[2500px] relative">
 
         <div className="absolute inset-0 w-full h-full max-h-full">
     
@@ -107,7 +107,7 @@ const Hero = () => {
 
         <div className="absolute inset-0 w-full h-full items-center flex flex-col justify-center lg:justify-start">
 
-            <h1 className="max-w-[343px] md:max-w-[560px] lg:max-w-[955px] px-1 md:px-0 w-full text-5xl leading-[52px] md:text-[60px] md:leading-[60px] lg:text-[64px] lg:leading-[64px] text-white font-headline text-center mb-6 md:mb-10 lg:pt-[180px]">
+            <h1 className="max-w-[343px] md:max-w-[620px] lg:max-w-[955px] px-1 md:px-0 w-full text-5xl leading-[52px] md:text-[60px] md:leading-[60px] lg:text-[64px] lg:leading-[64px] text-white font-headline text-center mb-6 md:mb-10 lg:pt-[180px]">
               {"LEGENDS OF LE MANS"}
               <br />
               {"NFT Drop Vol. II"}
