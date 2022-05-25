@@ -77,7 +77,7 @@ const Navbar = () => {
               className="block w-full max-w-[60%] max-w-image" 
               target="_blank"
               rel="noopener noreferrer"
-              href="{{process.env.NEXT_PUBLIC_NAVBAR_LOGO_LINK}}"
+              href={process.env.NEXT_PUBLIC_NAVBAR_LOGO_LINK}
             >
 
               {
