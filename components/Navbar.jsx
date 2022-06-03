@@ -74,7 +74,7 @@ const Navbar = () => {
           <div className="w-navBar max-w-navBar flex items-center justify-between ml-auto">
 
             <a 
-              className="block w-full max-w-[60%] max-w-image" 
+              className="block w-full max-w-[80%] max-w-image" 
               target="_blank"
               rel="noopener noreferrer"
               href={process.env.NEXT_PUBLIC_NAVBAR_LOGO_LINK}
@@ -103,7 +103,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={process.env.NEXT_PUBLIC_NAVBAR_WALLET_LINK} 
-              className=" py-[9.5px] px-[19px] md:px-[62.5px] leading-[13px] bg-primary md:py-[13.5px] text-center text-secondary buttonShape text-[12px] font-body"
+              className="!hidden py-[9.5px] px-[19px] md:px-[62.5px] leading-[13px] bg-primary md:py-[13.5px] text-center text-secondary buttonShape text-[12px] font-body"
               >
               {process.env.NEXT_PUBLIC_NAVBAR_WALLET_TEXT}
               </a>
