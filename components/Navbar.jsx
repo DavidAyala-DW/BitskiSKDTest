@@ -1,6 +1,10 @@
 import {useEffect, useState} from 'react'
 import Image from "next/image";
 import Link from "next/link";
+
+import { Bitski, AuthenticationStatus } from 'bitski';
+import Web3 from 'web3';
+
 const logoFileName = '/' +process.env.NEXT_PUBLIC_NAVBAR_LOGO;
 
 
@@ -9,6 +13,24 @@ const Navbar = () => {
   const [height, setHeight] = useState();
   const [width, setWidth] = useState();
   const [isLoadImage, setIsLoadImage] = useState(false);
+  const [bitskiSDK, setBitskiSDK] = useState();
+
+  useEffect(() => {
+
+    if(typeof window !== "undefined"){
+      const bitski = new Bitski('c22c9d82-1e37-4855-b48e-2ac9e48849bd', 'https://automobilist.netlify.app/'); // error because url CORS
+      const provider = bitski.getProvider();
+      const web3 = new Web3(provider);
+
+      setBitskiSDK(bitski);
+
+    }
+
+  }, [])
+
+  function handleClickLogin(){
+    bitskiSDK.signInRedirect('https://automobilist.netlify.app/');
+  }
   
   useEffect(() => {
 
@@ -100,13 +122,17 @@ const Navbar = () => {
               </a>
 
               <a 
+              onClick={handleClickLogin}
               target="_blank"
               rel="noopener noreferrer"
-              href={process.env.NEXT_PUBLIC_NAVBAR_WALLET_LINK} 
-              className="!hidden py-[9.5px] px-[19px] md:px-[62.5px] leading-[13px] bg-primary md:py-[13.5px] text-center text-secondary buttonShape text-[12px] font-body"
+              // href={process.env.NEXT_PUBLIC_NAVBAR_WALLET_LINK} 
+              className="cursor-pointer py-[9.5px] px-[19px] md:px-[62.5px] leading-[13px] bg-primary md:py-[13.5px] text-center text-secondary buttonShape text-[12px] font-body"
               >
               {process.env.NEXT_PUBLIC_NAVBAR_WALLET_TEXT}
               </a>
+
+              <div id="bitski-button"></div>
+
           </div>
 
         </div>

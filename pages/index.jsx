@@ -6,8 +6,58 @@ import { assignColors } from "../helpers";
 import Contact from "../components/Contact";
 import Main from "../components/Main";
 
+import { Bitski, AuthenticationStatus } from 'bitski';
+import Web3 from 'web3';
 
 const Home = ({featuredProduct,products}) => {
+
+  useEffect(() => {
+
+    if(typeof window !== "undefined"){
+
+      const bitski = new Bitski('c22c9d82-1e37-4855-b48e-2ac9e48849bd', 'https://automobilist.netlify.app/'); // error because url CORS
+      const provider = bitski.getProvider();
+      const web3 = new Web3(provider);
+      console.log(web3);
+
+      function checkAuthStatus() {
+
+        console.log("into function");
+        //Check if we are logged in
+        if (bitski.authStatus === AuthenticationStatus.NotConnected) {
+          //create the connect button
+          const containerElement = document.querySelector('#bitski-button');
+          const connectButton = bitski.getConnectButton({ container: containerElement});
+          
+          connectButton.callback = (error, user) => {
+            if (error) {
+              // Handle errors
+              return;
+            }
+            //Logged in!
+            connectButton.remove();
+            continueToApp();
+          };
+          // Optionally handle cancellation
+          connectButton.onCancel = () => {
+            // Will be called when the user clicks sign in, but dismisses popup
+          };
+        } else {
+          //already logged in
+          continueToApp();
+        }
+      }
+
+      function handleLoad(){
+        checkAuthStatus();
+      }
+      
+      window.addEventListener('load', handleLoad);
+      return window.removeEventListener('load', handleLoad, true);
+      
+    }
+
+  },[])
 
   useEffect(() => {
     assignColors();
